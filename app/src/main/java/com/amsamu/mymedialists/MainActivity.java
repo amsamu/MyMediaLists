@@ -19,7 +19,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public ActionBarDrawerToggle actionBarDrawerToggle;
     public ActivityMainBinding binding;
 
     @Override
@@ -33,18 +32,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setUpNavMenu() {
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, binding.drawerLayout, R.string.nav_menu_open, R.string.nav_menu_close); // Create hamburger menu button
-        binding.drawerLayout.addDrawerListener(actionBarDrawerToggle); // Add listener so it responds
-        actionBarDrawerToggle.syncState(); // Sync to show hamburger menu button as configured
         loadListsToMenu();
-        binding.navigation.getMenu().getItem(0).setChecked(true); // Check/highlight this activity's corresponding menu item
+        binding.navigation.getMenu().getItem(0).setChecked(true);
 
-        // Switch activities when clicking on an option from the navigation menu
-        binding.navigation.setNavigationItemSelectedListener(menuItem -> {
-            handleNavMenuItemSelected(menuItem);
+        binding.topAppBar.setNavigationOnClickListener(v -> binding.drawerLayout.open());
+
+        binding.navigation.setNavigationItemSelectedListener(item -> {
+            //item.setChecked(true);
+            handleNavMenuItemSelected(item);
+            binding.drawerLayout.close();
             return true;
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Show nav menu button
+
+
+        //binding.navigation.getMenu().getItem(0).setChecked(true); // Check/highlight this activity's corresponding menu item
+
+        // Switch activities when clicking on an option from the navigation menu
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Show nav menu button
     }
 
 
@@ -70,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             // finish(); // destroy this activity so it doesn't stay in the background
         }
-        binding.drawerLayout.closeDrawer(GravityCompat.START);
         Log.d("MainActivity", "leaving MainActivity");
     }
 
@@ -86,16 +90,6 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < mediaListArrayList.size(); i++) {
             binding.navigation.getMenu().add(R.id.nav_group_lists, i, 0, mediaListArrayList.get(i).name);
         }
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.d("MainActivity", "Clicked hamburger menu: " + item.getItemId());
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 }
