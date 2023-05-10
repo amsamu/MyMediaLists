@@ -12,22 +12,25 @@ import android.view.MenuItem;
 
 import com.amsamu.mymedialists.dao.MediaListDao;
 import com.amsamu.mymedialists.data.MediaList;
-import com.amsamu.mymedialists.databinding.ActivityMainBinding;
+import com.amsamu.mymedialists.databinding.ActivityViewListBinding;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class ViewListActivity extends AppCompatActivity {
 
     public ActionBarDrawerToggle actionBarDrawerToggle;
-    public ActivityMainBinding binding;
+    public ActivityViewListBinding binding;
+    int listId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Launching main activity
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityViewListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // Get selected list from invoking activity
+        listId = getIntent().getExtras().getInt("selectedList")+1;
+        Log.d("ViewListActivity", "Launched ViewListActivity, selectedList:" + listId);
 
         setUpNavMenu();
     }
@@ -37,27 +40,29 @@ public class MainActivity extends AppCompatActivity {
         binding.drawerLayout.addDrawerListener(actionBarDrawerToggle); // Add listener so it responds
         actionBarDrawerToggle.syncState(); // Sync to show hamburger menu button as configured
         loadListsToMenu();
-        binding.navigation.getMenu().getItem(0).setChecked(true); // Check/highlight this activity's corresponding menu item
+        binding.navigation.getMenu().getItem(listId).setChecked(true); // Check/highlight this activity's corresponding menu item
 
         // Switch activities when clicking on an option from the navigation menu
         binding.navigation.setNavigationItemSelectedListener(menuItem -> {
             handleNavMenuItemSelected(menuItem);
+            binding.drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Show nav menu button
     }
 
-
     public void handleNavMenuItemSelected(MenuItem menuItem) {
-        Log.d("MainActivity", "itemId: " +  menuItem.getItemId() + " groupId: " + menuItem.getGroupId() + " order: " + menuItem.getOrder());
+        Log.d("ViewListActivity", "itemId: " + menuItem.getItemId() + " groupId: " + menuItem.getGroupId() + " order: " + menuItem.getOrder());
 
         // If clicked on this activity's menu item, do nothing
-        if (menuItem.getItemId() == R.id.nav_item_home) {
+        if (menuItem.getItemId() == listId) {
             return;
         }
 
         Intent intent = null;
-        if (menuItem.getGroupId() == R.id.nav_group_lists) {
+        if (menuItem.getItemId() == R.id.nav_item_home) {
+            intent = new Intent(this, MainActivity.class);
+        } else if (menuItem.getGroupId() == R.id.nav_group_lists) {
             intent = new Intent(this, ViewListActivity.class);
             intent.putExtra("selectedList", menuItem.getItemId());
         } else if (menuItem.getItemId() == R.id.nav_item_new_list) {
@@ -68,10 +73,11 @@ public class MainActivity extends AppCompatActivity {
         // Launch new activity
         if (intent != null) {
             startActivity(intent);
-            // finish(); // destroy this activity so it doesn't stay in the background
+            if(menuItem.getItemId() != R.id.nav_item_new_list) {
+                finish(); // destroy this activity so it doesn't stay in the background
+            }
         }
-        binding.drawerLayout.closeDrawer(GravityCompat.START);
-        Log.d("MainActivity", "leaving MainActivity");
+        Log.d("ViewListActivity", "leaving ViewListActivity");
     }
 
 
@@ -88,10 +94,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.d("MainActivity", "Clicked hamburger menu: " + item.getItemId());
+        Log.d("ViewListActivity", "Clicked hamburger menu: " + item.getItemId());
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }

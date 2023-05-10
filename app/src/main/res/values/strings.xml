@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">MyMediaLists</string>
+    <string name="welcome_msg">Welcome to MyMediaLists home page</string>
+    <string name="new_list">New list</string>
     <string name="nav_menu_open">Open</string>
     <string name="nav_menu_close">Close</string>
+    <string name="save">Save</string>
+    <string name="nav_option_home">Home page</string>
 </resources>

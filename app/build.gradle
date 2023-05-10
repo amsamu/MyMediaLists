@@ -35,13 +35,17 @@ android {
 }
 
 dependencies {
+    // Material design
+    implementation 'com.google.android.material:material:1.9.0'
+
+    // Navigation drawer dependencies
     implementation 'androidx.navigation:navigation-fragment:2.4.1'
     implementation 'androidx.navigation:navigation-ui:2.4.1'
-    def room_version = "2.5.1"
 
+    // Room dependencies
+    def room_version = "2.5.1"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
-
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'

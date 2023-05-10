@@ -24,4 +24,7 @@ public interface MediaListDao {
     @Delete
     void delete(MediaList mediaList);
 
+    @Query("SELECT max(id) FROM MediaList")
+    int getHighestId();
+
 }

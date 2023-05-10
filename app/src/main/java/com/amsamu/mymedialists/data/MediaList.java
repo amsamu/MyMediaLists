@@ -13,5 +13,8 @@ public class MediaList {
 
     public String name;
 
-
+    public MediaList(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

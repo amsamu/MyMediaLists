@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/nav_list1"
-        android:title="List 1" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/nav_list2"
-        android:title="List 2" />
+    <group android:id="@+id/nav_group_home" android:orderInCategory="0">
+        <item
+            android:id="@+id/nav_item_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/nav_option_home" />
+    </group>
 
-    <item
-        android:id="@+id/nav_list3"
-        android:title="List 3" />
+    <group android:id="@+id/nav_group_lists" android:orderInCategory="1">
+<!--        <item-->
+<!--            android:id="@+id/nav_item_list_1"-->
+<!--            android:title="List 1" />-->
+
+<!--        <item-->
+<!--            android:id="@+id/nav_item_list_2"-->
+<!--            android:title="List 2" />-->
+
+<!--        <item-->
+<!--            android:id="@+id/nav_item_list_3"-->
+<!--            android:title="List 3" />-->
+    </group>
+
+    <group android:id="@+id/nav_group_options" android:orderInCategory="2" >
+        <item
+            android:id="@+id/nav_item_new_list"
+            android:title="New list"
+            android:icon="@drawable/ic_baseline_library_add_24"
+            />
+    </group>
+
 </menu>
