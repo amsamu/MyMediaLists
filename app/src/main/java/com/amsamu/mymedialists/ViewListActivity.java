@@ -37,6 +37,7 @@ public class ViewListActivity extends AppCompatActivity {
     public void setUpNavMenu() {
 
         loadListsToMenu();
+        binding.navigation.getMenu().getItem(listId).setCheckable(true);
         binding.navigation.getMenu().getItem(listId).setChecked(true); // Check/highlight this activity's corresponding menu item
 
         // Switch activities when clicking on an option from the navigation menu

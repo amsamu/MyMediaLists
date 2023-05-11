@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void setUpNavMenu() {
         loadListsToMenu();
+        binding.navigation.getMenu().getItem(0).setCheckable(true); // IMPORTANT: MUST BE SET TO TRUE, OTHERWISE SETCHECKED DOES NOT FULLY WORK!!
         binding.navigation.getMenu().getItem(0).setChecked(true);
 
         binding.topAppBar.setNavigationOnClickListener(v -> binding.drawerLayout.open());
