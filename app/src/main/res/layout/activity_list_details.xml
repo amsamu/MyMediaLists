@@ -12,21 +12,42 @@
         android:layout_height="match_parent"
         tools:context=".ListDetailsActivity">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField2"
-            style="?attr/textInputOutlinedStyle"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="List name"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="116dp">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_text_2"
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/topAppBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:navigationIcon="@drawable/ic_baseline_close_24"
+                    app:menu="@menu/details_toolbar"
+                    app:title="@string/list_details_activity_title" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textField2"
+                    style="?attr/textInputOutlinedStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="List name"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="116dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_text_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

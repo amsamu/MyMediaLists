@@ -7,4 +7,7 @@
     <string name="save">Save</string>
     <string name="nav_option_home">Home page</string>
     <string name="header_title">MyMediaLists</string>
+    <string name="main_activity_title">Home page</string>
+    <string name="view_lists_activity_title">List</string>
+    <string name="list_details_activity_title">New list</string>
 </resources>

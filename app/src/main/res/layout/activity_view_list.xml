@@ -17,12 +17,12 @@
             android:id="@+id/drawer_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:openDrawer="start" >
+            tools:openDrawer="start">
 
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fitsSystemWindows="true" >
+                android:fitsSystemWindows="true">
 
                 <com.google.android.material.appbar.AppBarLayout
                     android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
                         app:navigationIcon="@drawable/ic_baseline_menu_24"
-                        app:title="@string/app_name" />
+                        app:title="@string/view_lists_activity_title" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -53,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
+                app:headerLayout="@layout/header_nav_drawer"
                 app:menu="@menu/nav_menu" />
         </androidx.drawerlayout.widget.DrawerLayout>
 

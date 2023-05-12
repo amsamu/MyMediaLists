@@ -2,27 +2,19 @@ package com.amsamu.mymedialists;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
-import androidx.appcompat.view.ContextThemeWrapper;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.amsamu.mymedialists.dao.MediaListDao;
 import com.amsamu.mymedialists.data.MediaList;
 import com.amsamu.mymedialists.databinding.ActivityListDetailsBinding;
 
-import java.util.List;
-
 public class ListDetailsActivity extends AppCompatActivity {
 
     public ActivityListDetailsBinding binding;
-
-    ActionMode actionMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,41 +24,19 @@ public class ListDetailsActivity extends AppCompatActivity {
 
         Log.d("ListDetailsActivity","created ListDetailsActivity");
 
-        setUpActionBar();
+        setUpTopBar();
     }
 
-    public void setUpActionBar() {
-        startSupportActionMode(actModeCallback);
-        //getSupportActionBar().setDisplayShowTitleEnabled(true);
-    }
-
-    ActionMode.Callback actModeCallback = new ActionMode.Callback() {
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            mode.getMenuInflater().inflate(R.menu.details_toolbar, menu);
-            mode.setTitle(R.string.new_list);
-            return true;
-        }
-
-        @Override
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            return false;
-        }
-
-        @Override
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+    public void setUpTopBar() {
+        binding.topAppBar.setNavigationOnClickListener(v -> volverAMainActivity());
+        binding.topAppBar.setOnMenuItemClickListener(item -> {
             if(item.getItemId() == R.id.action_save){
                 insertarEnBD();
                 volverAMainActivity();
             }
             return true;
-        }
-
-        @Override
-        public void onDestroyActionMode(ActionMode mode) {
-            volverAMainActivity();
-        }
-    };
+        });
+    }
 
     public void volverAMainActivity(){
         Intent intent = new Intent(this, MainActivity.class);
