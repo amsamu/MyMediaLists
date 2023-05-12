@@ -1,9 +1,6 @@
 package com.amsamu.mymedialists;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +12,6 @@ import com.amsamu.mymedialists.data.MediaList;
 import com.amsamu.mymedialists.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = null;
         if (menuItem.getGroupId() == R.id.nav_group_lists) {
-            intent = new Intent(this, ViewListActivity.class);
+            intent = new Intent(this, DisplayListActivity.class);
             intent.putExtra("selectedList", menuItem.getItemId());
         } else if (menuItem.getItemId() == R.id.nav_item_new_list) {
             intent = new Intent(this, ListDetailsActivity.class);
