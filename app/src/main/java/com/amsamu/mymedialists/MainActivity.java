@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
 //        binding.navigation.getMenu().add(R.id.nav_group_lists, 1, 0, "Films");
 //        binding.navigation.getMenu().add(R.id.nav_group_lists, 2, 0, "Series");
 //        binding.navigation.getMenu().add(R.id.nav_group_lists, 3, 0, "Books");
-        AppDatabase bd = AppDatabase.getDatabase(getApplicationContext());
-        MediaListDao mListDao = bd.mediaListDao();
+        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+        MediaListDao mListDao = db.mediaListDao();
         ArrayList<MediaList> mediaListArrayList = (ArrayList<MediaList>) mListDao.getAll();
 
         for (int i = 0; i < mediaListArrayList.size(); i++) {

@@ -1,7 +1,6 @@
 package com.amsamu.mymedialists;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.ActionMode;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,35 +27,26 @@ public class ListDetailsActivity extends AppCompatActivity {
     }
 
     public void setUpTopBar() {
-        binding.topAppBar.setNavigationOnClickListener(v -> volverAMainActivity());
+        binding.topAppBar.setNavigationOnClickListener(v -> returnToMainActivity());
         binding.topAppBar.setOnMenuItemClickListener(item -> {
             if(item.getItemId() == R.id.action_save){
-                insertarEnBD();
-                volverAMainActivity();
+                insertToDB();
+                returnToMainActivity();
             }
             return true;
         });
     }
 
-    public void volverAMainActivity(){
+    public void returnToMainActivity(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
-    private void insertarEnBD() {
-        AppDatabase bd = AppDatabase.getDatabase(getApplicationContext());
-        MediaListDao mListDao = bd.mediaListDao();
+    private void insertToDB() {
+        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+        MediaListDao mListDao = db.mediaListDao();
         mListDao.insertAll(new MediaList(mListDao.getHighestId() + 1, binding.editText2.getText().toString()));
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 
 }

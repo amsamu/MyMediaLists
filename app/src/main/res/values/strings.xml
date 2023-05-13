@@ -10,4 +10,6 @@
     <string name="main_activity_title">Home page</string>
     <string name="display_list_activity_title">List</string>
     <string name="list_details_activity_title">New list</string>
+    <string name="fab_content_desc">Add new entry to the list</string>
+    <string name="entry_details_activity_title">New entry</string>
 </resources>
