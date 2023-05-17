@@ -26,36 +26,46 @@
                     android:id="@+id/topAppBar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:navigationIcon="@drawable/ic_baseline_close_24"
                     app:menu="@menu/details_toolbar"
+                    app:navigationIcon="@drawable/ic_baseline_close_24"
                     app:title="@string/entry_details_activity_title" />
 
+                <!-- Title input -->
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textField"
+                    android:id="@+id/field_layout_title"
                     style="?attr/textInputOutlinedStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="waaaa"
+                    android:hint="@string/title_hint"
+                    android:padding="24dp"
                     tools:ignore="MissingConstraints">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edit_text_1"
+                        android:id="@+id/edit_text_title"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Release date input -->
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/text_field_2"
+                    android:id="@+id/field_layout_release_date"
                     style="?attr/textInputOutlinedStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="waaaa"
+                    android:hint="@string/release_date_hint"
+                    android:padding="24dp"
                     tools:ignore="MissingConstraints">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_text_release_date"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 

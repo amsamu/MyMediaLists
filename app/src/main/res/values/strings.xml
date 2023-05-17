@@ -12,4 +12,6 @@
     <string name="list_details_activity_title">New list</string>
     <string name="fab_content_desc">Add new entry to the list</string>
     <string name="entry_details_activity_title">New entry</string>
+    <string name="title_hint">Title</string>
+    <string name="release_date_hint">Release date</string>
 </resources>
