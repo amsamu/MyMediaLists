@@ -1,6 +1,7 @@
 package com.amsamu.mymedialists;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,14 @@ public class DisplayListActivity extends AppCompatActivity {
 
         setUpNavMenu();
         setUpFAB();
+        setUpRecyclerView();
+    }
+
+    public void setUpRecyclerView(){
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        MediaListAdapter adapter = new MediaListAdapter();
+        binding.recyclerView.setAdapter(adapter);
+        adapter.submitList(AppDatabase.getDatabase(getApplicationContext()).titleDao().getAll());
     }
 
     public void setUpNavMenu() {
