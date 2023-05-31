@@ -38,7 +38,7 @@ public class MediaListAdapter extends ListAdapter<Title, MediaListAdapter.MediaL
     @NonNull
     @Override
     public MediaListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { // parent = RecycleView
-        DisplayedListItemBinding binding = DisplayedListItemBinding.inflate(LayoutInflater.from(parent.getContext()));
+        DisplayedListItemBinding binding = DisplayedListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new MediaListViewHolder(binding);
     }
 
