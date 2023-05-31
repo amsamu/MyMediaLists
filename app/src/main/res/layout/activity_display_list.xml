@@ -34,6 +34,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
                         app:navigationIcon="@drawable/ic_baseline_menu_24"
+                        app:menu="@menu/display_list_toolbar"
+                        app:titleCentered="true"
                         app:title="@string/display_list_activity_title" />
 
                 </com.google.android.material.appbar.AppBarLayout>

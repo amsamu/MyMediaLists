@@ -53,16 +53,6 @@ public class EntryDetailsActivity extends AppCompatActivity {
         setShowMore();
     }
 
-    public void setShowMore(){
-        binding.buttonShowMore.setOnClickListener(v -> {
-            if(binding.fieldLayoutReleaseDate.getVisibility()==View.VISIBLE){
-                binding.fieldLayoutReleaseDate.setVisibility(View.GONE);
-            }else if(binding.fieldLayoutReleaseDate.getVisibility()==View.GONE){
-                binding.fieldLayoutReleaseDate.setVisibility(View.VISIBLE);
-            }
-        });
-    }
-
     public void setUpTopBar() {
         binding.topAppBar.setNavigationOnClickListener(v -> returnToDisplayList());
         binding.topAppBar.setOnMenuItemClickListener(item -> {
@@ -71,6 +61,16 @@ public class EntryDetailsActivity extends AppCompatActivity {
                 returnToDisplayList();
             }
             return true;
+        });
+    }
+
+    public void setShowMore(){
+        binding.buttonShowMore.setOnClickListener(v -> {
+            if(binding.fieldLayoutReleaseDate.getVisibility()==View.VISIBLE){
+                binding.fieldLayoutReleaseDate.setVisibility(View.GONE);
+            }else if(binding.fieldLayoutReleaseDate.getVisibility()==View.GONE){
+                binding.fieldLayoutReleaseDate.setVisibility(View.VISIBLE);
+            }
         });
     }
 

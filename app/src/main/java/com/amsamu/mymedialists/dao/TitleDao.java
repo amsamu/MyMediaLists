@@ -14,6 +14,9 @@ public interface TitleDao {
     @Query("SELECT * FROM Title")
     List<Title> getAll();
 
+    @Query("SELECT * FROM Title ORDER BY name COLLATE NOCASE COLLATE UNICODE")
+    List<Title> getAllOrderedByName();
+
     @Query("SELECT * FROM Title WHERE name LIKE :name LIMIT 1")
     Title findByName(String name);
 

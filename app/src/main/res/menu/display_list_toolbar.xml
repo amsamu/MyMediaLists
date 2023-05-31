@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_sort_by"
+        android:icon="@drawable/baseline_sort_24"
+        android:title="@string/sort_by"
+        app:showAsAction="always">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/sort_by_release_date"
+                    android:title="@string/release_date_hint"
+                    android:checked="true" />
+                <item
+                    android:id="@+id/sort_by_name"
+                    android:title="@string/title_name" />
+                <item
+                    android:id="@+id/sort_by_status"
+                    android:title="@string/status" />
+            </group>
+        </menu>
+    </item>
+
+</menu>

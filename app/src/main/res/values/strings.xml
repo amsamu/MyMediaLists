@@ -14,4 +14,7 @@
     <string name="entry_details_activity_title">New entry</string>
     <string name="title_hint">Title</string>
     <string name="release_date_hint">Release date</string>
+    <string name="sort_by">Sort by</string>
+    <string name="title_name">Title name</string>
+    <string name="status">Status</string>
 </resources>

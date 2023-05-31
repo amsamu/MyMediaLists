@@ -10,18 +10,23 @@ import android.view.MenuItem;
 
 import com.amsamu.mymedialists.dao.MediaListDao;
 import com.amsamu.mymedialists.data.MediaList;
+import com.amsamu.mymedialists.data.Title;
 import com.amsamu.mymedialists.databinding.ActivityDisplayListBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DisplayListActivity extends AppCompatActivity {
 
+    AppDatabase db;
     public ActivityDisplayListBinding binding;
     int listId;
+    MediaListAdapter adapter = new MediaListAdapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = AppDatabase.getDatabase(getApplicationContext());
         binding = ActivityDisplayListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -29,16 +34,34 @@ public class DisplayListActivity extends AppCompatActivity {
         listId = getIntent().getExtras().getInt("selectedList");
         Log.d("DisplayListActivity", "Launched DisplayListActivity, selectedList:" + listId);
 
+        setUpTopBar();
         setUpNavMenu();
         setUpFAB();
         setUpRecyclerView();
     }
 
-    public void setUpRecyclerView(){
+    public void setUpTopBar() {
+        binding.topAppBar.setOnMenuItemClickListener(item -> {
+            binding.topAppBar.getMenu().findItem(item.getItemId()).setChecked(true);
+            switch (item.getItemId()) {
+                case R.id.sort_by_release_date:
+                    loadTitles("releaseDate");
+                    break;
+                case R.id.sort_by_name:
+                    loadTitles("name");
+                    break;
+                case R.id.sort_by_status:
+                    loadTitles("status");
+                    break;
+            }
+            return true;
+        });
+    }
+
+    public void setUpRecyclerView() {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        MediaListAdapter adapter = new MediaListAdapter();
         binding.recyclerView.setAdapter(adapter);
-        adapter.submitList(AppDatabase.getDatabase(getApplicationContext()).titleDao().getAll());
+        loadTitles("name");
     }
 
     public void setUpNavMenu() {
@@ -58,7 +81,7 @@ public class DisplayListActivity extends AppCompatActivity {
         });
     }
 
-    public void setUpFAB(){
+    public void setUpFAB() {
         binding.floatingActionButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, EntryDetailsActivity.class);
             intent.putExtra("containerList", listId);
@@ -89,11 +112,19 @@ public class DisplayListActivity extends AppCompatActivity {
         // Launch new activity
         if (intent != null) {
             startActivity(intent);
-            if(menuItem.getItemId() != R.id.nav_item_new_list) {
+            if (menuItem.getItemId() != R.id.nav_item_new_list) {
                 finish(); // destroy this activity so it doesn't stay in the background
             }
         }
         Log.d("DisplayListActivity", "leaving DisplayListActivity");
+    }
+
+    public void loadTitles(String fieldToOrderBy){
+        switch(fieldToOrderBy){
+            case "name":
+                adapter.submitList(db.titleDao().getAllOrderedByName());
+                break;
+        }
     }
 
 
@@ -101,7 +132,6 @@ public class DisplayListActivity extends AppCompatActivity {
 //        binding.navigation.getMenu().add(R.id.nav_group_lists, 1, 0, "Films");
 //        binding.navigation.getMenu().add(R.id.nav_group_lists, 2, 0, "Series");
 //        binding.navigation.getMenu().add(R.id.nav_group_lists, 3, 0, "Books");
-        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
         MediaListDao mListDao = db.mediaListDao();
         ArrayList<MediaList> mediaListArrayList = (ArrayList<MediaList>) mListDao.getAll();
 
