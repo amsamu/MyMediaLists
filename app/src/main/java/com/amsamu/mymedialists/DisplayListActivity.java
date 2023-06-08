@@ -29,7 +29,9 @@ public class DisplayListActivity extends AppCompatActivity {
     public ActivityDisplayListBinding binding;
     int listId;
     MediaList list;
-    MediaListAdapter adapter = new MediaListAdapter();
+    MediaListAdapter adapter;
+    int highestListId;
+    boolean launchedNewList = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +44,29 @@ public class DisplayListActivity extends AppCompatActivity {
         listId = getIntent().getExtras().getInt("selectedList");
         Log.d("DisplayListActivity", "Launched DisplayListActivity, selectedList:" + listId);
 
-        list = db.mediaListDao().getMediaList(listId);
-
-        setUpTopBar();
-        setUpNavMenu();
-        setUpFAB();
-        setUpRecyclerView();
+        setUpEverything();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
+        if(launchedNewList) {
+            int prevHighestId = highestListId;
+            highestListId = db.mediaListDao().getHighestId();
+            if (highestListId > prevHighestId) {
+                listId = highestListId;
+            }
+        }
+        launchedNewList = false;
+        setUpEverything();
+    }
+
+    public void setUpEverything(){
         list = db.mediaListDao().getMediaList(listId);
-        binding.topAppBar.setTitle(list.name);
+        setUpTopBar();
         binding.navigation.getMenu().findItem(R.id.nav_lists).getSubMenu().removeGroup(R.id.nav_group_lists);
         setUpNavMenu();
+        setUpFAB();
         adapter = new MediaListAdapter();
         setUpRecyclerView();
     }
@@ -74,8 +84,10 @@ public class DisplayListActivity extends AppCompatActivity {
             return true;
         });
 
-        if (!list.sortAscending) {
-            binding.topAppBar.getMenu().findItem(R.id.action_sort_ascending).setIcon(R.drawable.cil_sort_descending);
+        if (list.sortAscending) {
+            binding.topAppBar.getMenu().findItem(R.id.action_sort_ascending).setIcon(R.drawable.cil_sort_ascending).setTitle(R.string.sort_ascending);
+        }else{
+            binding.topAppBar.getMenu().findItem(R.id.action_sort_ascending).setIcon(R.drawable.cil_sort_descending).setTitle(R.string.sort_descending);
         }
         loadSortField();
     }
@@ -159,6 +171,7 @@ public class DisplayListActivity extends AppCompatActivity {
     public void launchListDetails(int listId) {
         Intent intent = new Intent(this, ListDetailsActivity.class);
         intent.putExtra("list", listId);
+        intent.putExtra("prevActivityIsHome", false);
         startActivity(intent);
     }
 
@@ -276,13 +289,17 @@ public class DisplayListActivity extends AppCompatActivity {
             intent = new Intent(this, DisplayListActivity.class);
             intent.putExtra("selectedList", menuItem.getItemId());
         } else if (menuItem.getItemId() == R.id.nav_item_new_list) {
+            launchedNewList = true;
+            highestListId = db.mediaListDao().getHighestId();
             launchListDetails(-1);
+        } else if (menuItem.getItemId() == R.id.nav_item_settings) {
+            intent = new Intent(this, SettingsActivity.class);
         }
 
         // Launch new activity
         if (intent != null) {
             startActivity(intent);
-            if (menuItem.getItemId() != R.id.nav_item_new_list) {
+            if (menuItem.getItemId() != R.id.nav_item_new_list && menuItem.getItemId() != R.id.nav_item_settings) {
                 finish(); // destroy this activity so it doesn't stay in the background
             }
         }

@@ -13,9 +13,13 @@ import android.view.View;
 import com.amsamu.mymedialists.adapters.CarouselAdapter;
 import com.amsamu.mymedialists.database.AppDatabase;
 import com.amsamu.mymedialists.database.tables.Entry;
+import com.amsamu.mymedialists.database.tables.MediaList;
 import com.amsamu.mymedialists.databinding.ActivityMainBinding;
 import com.amsamu.mymedialists.util.EntryStatus;
 import com.google.android.material.carousel.CarouselLayoutManager;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import java.io.File;
 import java.util.Arrays;
@@ -37,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
 
         setUpNavMenu();
         setUpRecyclerView();
+
+        logCurrentAppFiles();
+        cleanTmpDir();
+        logCurrentAppFiles();
     }
 
     @Override
@@ -59,10 +67,6 @@ public class MainActivity extends AppCompatActivity {
             binding.drawerLayout.close();
             return true;
         });
-
-        logCurrentAppFiles();
-        cleanTmpDir();
-        logCurrentAppFiles();
     }
 
 
@@ -81,12 +85,14 @@ public class MainActivity extends AppCompatActivity {
         } else if (menuItem.getItemId() == R.id.nav_item_new_list) {
             intent = new Intent(this, ListDetailsActivity.class);
             intent.putExtra("list", -1);
+            intent.putExtra("prevActivityIsHome", true);
+        } else if (menuItem.getItemId() == R.id.nav_item_settings) {
+            intent = new Intent(this, SettingsActivity.class);
         }
 
         // Launch new activity
         if (intent != null) {
             startActivity(intent);
-            // finish(); // destroy this activity so it doesn't stay in the background
         }
         Log.d("MainActivity", "leaving MainActivity");
     }
@@ -100,16 +106,16 @@ public class MainActivity extends AppCompatActivity {
         loadEntries();
     }
 
-    public void loadEntries(){
+    public void loadEntries() {
         List<Entry> entryList = db.entryDao().getAllOnStatus(EntryStatus.ONGOING);
         adapter.submitList(entryList);
         setUpEmptyView(entryList);
     }
 
-    public void setUpEmptyView(List<Entry> entryList){
-        if(entryList == null || entryList.isEmpty()){
+    public void setUpEmptyView(List<Entry> entryList) {
+        if (entryList == null || entryList.isEmpty()) {
             binding.emptyView.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             binding.emptyView.setVisibility(View.GONE);
         }
     }

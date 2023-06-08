@@ -41,5 +41,7 @@ public interface MediaListDao {
     @Delete
     void delete(MediaList mediaList);
 
+    @Query("DELETE FROM media_lists")
+    void deleteEverything();
 
 }

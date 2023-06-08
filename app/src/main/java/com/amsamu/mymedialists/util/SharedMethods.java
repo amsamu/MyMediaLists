@@ -11,10 +11,13 @@ import com.amsamu.mymedialists.database.dao.MediaListDao;
 import com.amsamu.mymedialists.database.tables.MediaList;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class SharedMethods {
+
+    public static DateTimeFormatter simpleFormatter = DateTimeFormatter.ofPattern("uuuuMMdd-HHmmss");
 
     public static void loadListsToMenu(AppDatabase db, Menu menu) {
         MediaListDao mListDao = db.mediaListDao();

@@ -116,4 +116,7 @@ public interface EntryDao {
     @Query("DELETE FROM entries WHERE listId = :listId")
     void deleteAllInList(int listId);
 
+    @Query("DELETE FROM entries")
+    void deleteEverything();
+
 }
