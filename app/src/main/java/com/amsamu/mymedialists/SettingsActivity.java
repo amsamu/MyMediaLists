@@ -164,6 +164,7 @@ public class SettingsActivity extends AppCompatActivity {
                 if (entry.coverImage != null) {
                     byte[] bytes = Base64.decode(entry.coverImage, Base64.DEFAULT);
                     File coverImageFile = new File(getApplicationContext().getFilesDir(), "entries_images/" + entry.id + "_" + LocalDateTime.now().format(simpleFormatter));
+                    coverImageFile.getParentFile().mkdir();
                     Files.write(coverImageFile.toPath(), bytes);
                     entry.coverImage = coverImageFile.getPath();
                 }
