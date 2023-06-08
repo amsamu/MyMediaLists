@@ -52,4 +52,14 @@
     <string name="dropped">Abandonado</string>
     <string name="onhold">En pausa</string>
     <string name="home">Inicio</string>
+    <string name="settings">Ajustes</string>
+    <string name="export_text">Exportar base de datos de listas</string>
+    <string name="import_text">Importar base de datos de listas</string>
+    <string name="exported">Base de datos exportada</string>
+    <string name="cant_import">El formato del fichero no es correcto</string>
+    <string name="question_import_dabase">¿Importar esta base de datos?</string>
+    <string name="message_confirm_import">¡Si importas una nueva base de datos desde un archivo, se borrará tu base de datos actual con todas tus listas y entradas!</string>
+    <string name="do_import">Importar</string>
+    <string name="imported">Nueva base de datos importada</string>
+    <string name="options">Opciones</string>
 </resources>

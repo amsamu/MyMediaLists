@@ -2,6 +2,7 @@ package com.amsamu.mymedialists;
 
 import static com.amsamu.mymedialists.util.SharedMethods.formatDate;
 import static com.amsamu.mymedialists.util.SharedMethods.showInfoDialog;
+import static com.amsamu.mymedialists.util.SharedMethods.simpleFormatter;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -44,8 +45,6 @@ public class EntryDetailsActivity extends AppCompatActivity {
     boolean isNewEntry = false;
     File coverImageFile = null;
     File tmpCoverImageFile = null;
-
-    DateTimeFormatter simpleFormatter = DateTimeFormatter.ofPattern("uuuuMMdd-HHmmss");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,23 +180,20 @@ public class EntryDetailsActivity extends AppCompatActivity {
 
     public void setUpImagePicker() {
         ActivityResultLauncher<String> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(),
-                new ActivityResultCallback<Uri>() {
-                    @Override
-                    public void onActivityResult(Uri result) {
-                        if (result != null) {
-                            // The chosen image is saved to a tmp directory and displayed in the image view
-                            tmpCoverImageFile = new File(getApplicationContext().getFilesDir(), "entries_images/tmp/" + entryId + "_" + LocalDateTime.now().format(simpleFormatter));
-                            tmpCoverImageFile.getParentFile().getParentFile().mkdir();
-                            tmpCoverImageFile.getParentFile().mkdir();
-                            try (InputStream is = getApplicationContext().getContentResolver().openInputStream(result)) {
-                                Log.d("EntryDetailsActivity", "is: " + result.getPath());
-                                Files.copy(is, tmpCoverImageFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                                binding.image.setImageURI(null);
-                                binding.image.setImageURI(Uri.fromFile(tmpCoverImageFile));
-                                binding.image.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
+                result -> {
+                    if (result != null) {
+                        // The chosen image is saved to a tmp directory and displayed in the image view
+                        tmpCoverImageFile = new File(getApplicationContext().getFilesDir(), "entries_images/tmp/" + entryId + "_" + LocalDateTime.now().format(simpleFormatter));
+                        tmpCoverImageFile.getParentFile().getParentFile().mkdir();
+                        tmpCoverImageFile.getParentFile().mkdir();
+                        try (InputStream is = getApplicationContext().getContentResolver().openInputStream(result)) {
+                            Log.d("EntryDetailsActivity", "is: " + result.getPath());
+                            Files.copy(is, tmpCoverImageFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                            binding.image.setImageURI(null);
+                            binding.image.setImageURI(Uri.fromFile(tmpCoverImageFile));
+                            binding.image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
                         }
                     }
                 });

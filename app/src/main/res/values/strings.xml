@@ -52,4 +52,14 @@
     <string name="dropped">Dropped</string>
     <string name="onhold">On hold</string>
     <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="export_text">Export lists database</string>
+    <string name="import_text">Import lists database</string>
+    <string name="exported">Database exported</string>
+    <string name="cant_import">The file format isn\'t correct</string>
+    <string name="question_import_dabase">Import this database?</string>
+    <string name="message_confirm_import">If you import a new database from a file, your current database with all of your lists and entries will be deleted!</string>
+    <string name="do_import">Import</string>
+    <string name="imported">New database imported</string>
+    <string name="options">Options</string>
 </resources>

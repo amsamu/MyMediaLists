@@ -4,6 +4,7 @@ import static com.amsamu.mymedialists.util.SharedMethods.showInfoDialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -69,6 +70,11 @@ public class ListDetailsActivity extends AppCompatActivity {
         list.name = binding.editTextListName.getText().toString().trim();
         if(isNewList){
             insertToDB();
+            if(getIntent().getExtras().getBoolean("prevActivityIsHome")){
+                Intent intent = new Intent(this, DisplayListActivity.class);
+                intent.putExtra("selectedList", list.id);
+                startActivity(intent);
+            }
         }else{
             updateToDB();
         }
@@ -83,7 +89,6 @@ public class ListDetailsActivity extends AppCompatActivity {
     public void updateToDB(){
         db.mediaListDao().update(list);
         ToastManager.showToast(this, R.string.list_updated, Toast.LENGTH_SHORT);
-
     }
 
 }
