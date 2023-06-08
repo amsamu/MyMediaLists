@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="simple_items">
+        <item name="ongoing">@string/ongoing</item>
+        <item name="completed">@string/completed</item>
+        <item name="planned">@string/planned</item>
+        <item name="dropped">@string/dropped</item>
+        <item name="onhold">@string/onhold</item>
+    </string-array>
+</resources>

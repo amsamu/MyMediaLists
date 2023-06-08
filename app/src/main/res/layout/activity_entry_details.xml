@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         tools:context=".EntryDetailsActivity">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -21,7 +21,7 @@
             <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:animateLayoutChanges="true">
+                app:liftOnScroll="true">
 
                 <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/topAppBar"
@@ -31,79 +31,218 @@
                     app:navigationIcon="@drawable/ic_baseline_close_24"
                     app:title="@string/entry_details_activity_title" />
 
-                <ImageButton
-                    android:id="@+id/image"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/baseline_add_photo_alternate_24"/>
-
-                <!-- Title input -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/field_layout_title"
-                    style="?attr/textInputOutlinedStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/title_hint"
-                    android:padding="24dp"
-                    tools:ignore="MissingConstraints">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edit_text_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Release date input -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/field_layout_release_date"
-                    android:visibility="gone"
-                    style="?attr/textInputOutlinedStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/release_date_hint"
-                    android:padding="24dp"
-                    tools:ignore="MissingConstraints">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edit_text_release_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="false"
-                        android:cursorVisible="false"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <Button
-                    android:id="@+id/button_show_more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Show more"/>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/field_layout_eps"
-                        style="?attr/textInputOutlinedStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="eps"
-                        android:padding="24dp"
-                        tools:ignore="MissingConstraints">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edit_text_eps"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
             </com.google.android.material.appbar.AppBarLayout>
 
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:animateLayoutChanges="true"
+                        android:orientation="vertical" >
+
+                        <!-- Cover image -->
+                        <com.google.android.material.carousel.MaskableFrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="24dp"
+                            app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge">
+
+                            <ImageView
+                                android:id="@+id/image"
+                                android:layout_width="162dp"
+                                android:layout_height="162dp"
+                                android:background="?attr/colorPrimaryContainer"
+                                android:scaleType="center"
+                                android:src="@drawable/baseline_add_photo_alternate_24" />
+                        </com.google.android.material.carousel.MaskableFrameLayout>
+
+
+                        <!-- TITLE INFO -->
+                        <!-- Entry name input -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/field_layout_entry_name"
+                            style="?attr/textInputOutlinedStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/name_hint"
+                            android:paddingTop="24dp"
+                            android:paddingStart="48dp"
+                            android:paddingEnd="48dp"
+                            android:paddingBottom="12dp"
+                            tools:ignore="MissingConstraints">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edit_text_entry_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Author input -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/field_layout_entry_author"
+                            style="?attr/textInputOutlinedStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/author_hint"
+                            android:paddingStart="48dp"
+                            android:paddingEnd="48dp"
+                            android:paddingBottom="12dp"
+                            tools:ignore="MissingConstraints">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edit_text_entry_author"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <!-- HIDDEN FIELDS -->
+                        <LinearLayout
+                            android:id="@+id/entry_hidden_fields"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:visibility="gone" >
+
+                            <!-- Release year input -->
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/field_layout_release_date"
+                                style="?attr/textInputOutlinedStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/release_year_hint"
+                                android:paddingStart="48dp"
+                                android:paddingEnd="48dp"
+                                android:paddingBottom="12dp"
+                                tools:ignore="MissingConstraints">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edit_text_release_year"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!-- Publisher input -->
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/field_layout_entry_publisher"
+                                style="?attr/textInputOutlinedStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/publisher_hint"
+                                android:paddingStart="48dp"
+                                android:paddingEnd="48dp"
+                                android:paddingBottom="12dp"
+                                tools:ignore="MissingConstraints">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edit_text_entry_publisher"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="text" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+
+                        <!-- Show more arrow -->
+                        <Button
+                            android:id="@+id/button_show_more"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/baseline_keyboard_arrow_down_24"
+                            android:backgroundTint="?attr/colorPrimary" />
+
+                        <!-- DIVIDER -->
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:dividerInsetEnd="16dp"
+                            app:dividerInsetStart="16dp" />
+
+
+                        <!-- Status -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/field_layout_status"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/status"
+                            android:paddingTop="24dp"
+                            android:paddingStart="48dp"
+                            android:paddingEnd="48dp"
+                            android:paddingBottom="12dp"
+                            tools:ignore="MissingConstraints">
+
+                            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                                android:id="@+id/text_view_status"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="none"
+                                app:simpleItems="@array/simple_items"
+                                android:text="@string/planned" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Start date input -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/field_layout_start_date"
+                            style="?attr/textInputOutlinedStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/start_date_hint"
+                            android:paddingStart="48dp"
+                            android:paddingEnd="48dp"
+                            android:paddingBottom="12dp"
+                            tools:ignore="MissingConstraints">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edit_text_start_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Finish date input -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/field_layout_finish_date"
+                            style="?attr/textInputOutlinedStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/finish_date_hint"
+                            android:paddingStart="48dp"
+                            android:paddingEnd="48dp"
+                            android:paddingBottom="12dp"
+                            tools:ignore="MissingConstraints">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edit_text_finish_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+            </FrameLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </LinearLayout>
 </layout>

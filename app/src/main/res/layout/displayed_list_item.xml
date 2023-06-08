@@ -12,7 +12,7 @@
         android:padding="0dp">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card"
+            android:id="@+id/list_item_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp">
@@ -24,10 +24,12 @@
 
                 <!-- Media -->
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/list_item_image"
+                    android:layout_width="108dp"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:scaleType="center"
+                    android:background="?attr/colorPrimaryContainer"
+                    android:src="@drawable/baseline_description_24" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -35,29 +37,97 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <!-- Title, secondary and supporting text -->
-                    <TextView
-                        android:id="@+id/item_title"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/list_item_header"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="string/title"
-                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+                        android:orientation="horizontal" >
+                        <TextView
+                            android:id="@+id/list_item_entry_name"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:lines="1"
+                            android:ellipsize="end"
+                            android:text="Entry name"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+                        <TextView
+                            android:id="@+id/list_item_entry_year"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:visibility="gone"
+                            android:lines="1"
+                            android:ellipsize="end"
+                            android:layout_marginStart="8dp"
+                            android:gravity="center"
+                            android:text="(YYYY)"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="?android:attr/textColorTertiary"/>
+
+                    </LinearLayout>
 
                     <TextView
+                        android:id="@+id/list_item_author"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:visibility="invisible"
                         android:layout_marginTop="8dp"
+                        android:lines="1"
+                        android:ellipsize="end"
                         android:text="string/secondary_text"
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="?android:attr/textColorSecondary" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="string/supporting_text"
-                        android:textAppearance="?attr/textAppearanceBodyMedium"
-                        android:textColor="?android:attr/textColorSecondary" />
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/list_item_status"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:lines="1"
+                            android:ellipsize="end"
+                            android:text="Completed "
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="?android:attr/textColorSecondary" />
+
+                        <TextView
+                            android:id="@+id/list_item_start_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:visibility="invisible"
+                            android:lines="1"
+                            android:ellipsize="end"
+                            android:text="00/00/00"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="?android:attr/textColorSecondary" />
+
+                        <TextView
+                            android:id="@+id/list_item_dates_separator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:visibility="invisible"
+                            android:lines="1"
+                            android:ellipsize="end"
+                            android:text=" - "
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="?android:attr/textColorSecondary" />
+
+                        <TextView
+                            android:id="@+id/list_item_finish_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:visibility="invisible"
+                            android:lines="1"
+                            android:ellipsize="end"
+                            android:text="00/00/00"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="?android:attr/textColorSecondary" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -91,11 +161,11 @@
         <!--                    android:orientation="vertical"-->
         <!--                    android:padding="16dp">-->
 
-        <!--                    &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
+        <!--                    &lt;!&ndash; Entry, secondary and supporting text &ndash;&gt;-->
         <!--                    <TextView-->
         <!--                        android:layout_width="wrap_content"-->
         <!--                        android:layout_height="wrap_content"-->
-        <!--                        android:text="string/title"-->
+        <!--                        android:text="string/entry"-->
         <!--                        android:textAppearance="?attr/textAppearanceTitleMedium"-->
         <!--                        />-->
         <!--                    <TextView-->
@@ -156,7 +226,7 @@
         <!--            android:layout_toEndOf="@id/item_image"-->
         <!--            android:paddingStart="16dp"-->
         <!--            android:textSize="20dp"-->
-        <!--            android:text="Example title" />-->
+        <!--            android:text="Example entry" />-->
 
     </LinearLayout>
 </layout>

@@ -27,22 +27,24 @@
                     android:layout_height="?attr/actionBarSize"
                     app:navigationIcon="@drawable/ic_baseline_close_24"
                     app:menu="@menu/details_toolbar"
-                    app:title="@string/list_details_activity_title" />
+                    app:title="@string/new_list" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textField2"
+                    android:id="@+id/field_layout_list_name"
                     style="?attr/textInputOutlinedStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="List name"
+                    android:hint="@string/list_name"
+                    android:padding="24dp"
                     tools:ignore="MissingConstraints"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="116dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edit_text_2"
+                        android:id="@+id/edit_text_list_name"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

@@ -2,31 +2,39 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <group android:id="@+id/nav_group_home" android:orderInCategory="0">
-        <item
-            android:id="@+id/nav_item_home"
-            android:icon="@drawable/ic_baseline_home_24"
-            android:title="@string/nav_option_home" />
-    </group>
+    <item android:id="@+id/nav_home" android:title="@string/home">
+        <menu>
+            <group android:id="@+id/nav_group_home" android:orderInCategory="0">
+                <item
+                    android:id="@+id/nav_item_home"
+                    android:icon="@drawable/ic_baseline_home_24"
+                    android:title="@string/main_activity_title" />
+            </group>
+        </menu>
+    </item>
 
-    <group android:id="@+id/nav_group_lists" android:orderInCategory="1">
-<!--        <item-->
-<!--            android:id="@+id/nav_item_list_1"-->
-<!--            android:title="List 1" />-->
+    <item android:id="@+id/nav_lists" android:title="@string/lists">
+        <menu>
+            <group android:id="@+id/nav_group_lists" android:orderInCategory="1">
+<!--                        <item-->
+<!--                            android:id="@+id/nav_item_list_1"-->
+<!--                            android:title="List 1" />-->
 
-<!--        <item-->
-<!--            android:id="@+id/nav_item_list_2"-->
-<!--            android:title="List 2" />-->
+                <!--        <item-->
+                <!--            android:id="@+id/nav_item_list_2"-->
+                <!--            android:title="List 2" />-->
 
-<!--        <item-->
-<!--            android:id="@+id/nav_item_list_3"-->
-<!--            android:title="List 3" />-->
-    </group>
+                <!--        <item-->
+                <!--            android:id="@+id/nav_item_list_3"-->
+                <!--            android:title="List 3" />-->
+            </group>
+        </menu>
+    </item>
 
     <group android:id="@+id/nav_group_options" android:orderInCategory="2" >
         <item
             android:id="@+id/nav_item_new_list"
-            android:title="New list"
+            android:title="@string/new_list"
             android:icon="@drawable/ic_baseline_library_add_24"
             />
     </group>

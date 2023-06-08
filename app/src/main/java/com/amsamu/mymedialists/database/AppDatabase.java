@@ -1,28 +1,21 @@
-package com.amsamu.mymedialists;
+package com.amsamu.mymedialists.database;
 
 import android.content.Context;
 
 import androidx.room.*;
 
-import com.amsamu.mymedialists.dao.EntryDao;
-import com.amsamu.mymedialists.dao.MediaListDao;
-import com.amsamu.mymedialists.dao.TitleDao;
-import com.amsamu.mymedialists.dao.TypeDao;
-import com.amsamu.mymedialists.data.Entry;
-import com.amsamu.mymedialists.data.MediaList;
-import com.amsamu.mymedialists.data.Title;
-import com.amsamu.mymedialists.data.Type;
+import com.amsamu.mymedialists.database.dao.EntryDao;
+import com.amsamu.mymedialists.database.dao.MediaListDao;
+import com.amsamu.mymedialists.database.tables.MediaList;
+import com.amsamu.mymedialists.database.tables.Entry;
 
-@Database(entities = {Entry.class, MediaList.class, Title.class, Type.class}, version = 1, exportSchema = false)
+@Database(entities = {Entry.class, MediaList.class}, version = 11, exportSchema = false)
+@TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
-
-    public abstract EntryDao entryDao();
 
     public abstract MediaListDao mediaListDao();
 
-    public abstract TitleDao titleDao();
-
-    public abstract TypeDao typeDao();
+    public abstract EntryDao entryDao();
 
     private static volatile AppDatabase INSTANCE;
 

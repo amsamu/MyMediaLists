@@ -3,24 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_sort_ascending"
+        android:icon="@drawable/cil_sort_ascending"
+        android:title="@string/sort_ascending"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/action_sort_by"
         android:icon="@drawable/baseline_sort_24"
         android:title="@string/sort_by"
         app:showAsAction="always">
         <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/sort_by_release_date"
-                    android:title="@string/release_date_hint"
-                    android:checked="true" />
-                <item
-                    android:id="@+id/sort_by_name"
-                    android:title="@string/title_name" />
+            <group
+                android:id="@+id/group_sort_by"
+                android:checkableBehavior="single">
                 <item
                     android:id="@+id/sort_by_status"
                     android:title="@string/status" />
+                <item
+                    android:id="@+id/sort_by_name"
+                    android:title="@string/entry_name" />
+                <item
+                    android:id="@+id/sort_by_author"
+                    android:title="@string/author_hint" />
+                <item
+                    android:id="@+id/sort_by_release_year"
+                    android:title="@string/release_year_hint" />
+                <item
+                    android:id="@+id/sort_by_start_date"
+                    android:title="@string/start_date_hint" />
+                <item
+                    android:id="@+id/sort_by_finish_date"
+                    android:title="@string/finish_date_hint" />
             </group>
         </menu>
     </item>
+
+    <group android:id="@+id/disp_list_group_options">
+        <item
+            android:id="@+id/action_rename_list"
+            android:title="@string/rename_list"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_delete_list"
+            android:title="@string/delete_list"
+            app:showAsAction="never" />
+    </group>
 
 </menu>
