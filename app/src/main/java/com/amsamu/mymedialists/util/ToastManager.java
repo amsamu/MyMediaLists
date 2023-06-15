@@ -21,4 +21,11 @@ public class ToastManager {
     public static void showToast(final Context context, int textId, int duration){
         showToast(context, context.getString(textId) , duration);
     }
+
+    public static void cancelToast() {
+        if (toast != null) {
+            toast.cancel();
+            toast = null;
+        }
+    }
 }

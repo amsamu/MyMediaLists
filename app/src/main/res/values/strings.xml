@@ -62,4 +62,5 @@
     <string name="do_import">Import</string>
     <string name="imported">New database imported</string>
     <string name="options">Options</string>
+    <string name="exporting">Preparing exportation...</string>
 </resources>

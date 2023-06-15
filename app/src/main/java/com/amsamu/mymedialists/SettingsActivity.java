@@ -61,7 +61,6 @@ public class SettingsActivity extends AppCompatActivity {
                 new ActivityResultContracts.CreateDocument("application/json"), result -> {
                     if (result != null) {
                         try (OutputStream os = getApplicationContext().getContentResolver().openOutputStream(result)) {
-                            ;
                             writeJsonFile(os, dbJsonObj);
                             ToastManager.showToast(this, R.string.exported, Toast.LENGTH_SHORT);
                         } catch (IOException e) {
@@ -98,6 +97,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void exportDB() {
+        ToastManager.showToast(this, R.string.exporting, Toast.LENGTH_LONG);
         Gson gson = new Gson();
         dbJsonObj = new JsonObject();
 
@@ -112,6 +112,7 @@ public class SettingsActivity extends AppCompatActivity {
         dbJsonObj.add("entries", entriesObject);
         Log.d("JSON", dbJsonObj.toString());
 
+        ToastManager.cancelToast();
         exportResultLauncher.launch("mymedialists_data_" + LocalDateTime.now().format(simpleFormatter));
     }
 
