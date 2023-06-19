@@ -8,7 +8,8 @@
         android:title="@string/save"
         app:showAsAction="always" />
 
-    <group android:id="@+id/details_group_options"
+    <group
+        android:id="@+id/details_group_options"
         android:visible="false">
         <item
             android:id="@+id/action_delete_entry"

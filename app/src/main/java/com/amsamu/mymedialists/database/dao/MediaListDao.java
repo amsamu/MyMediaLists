@@ -24,11 +24,12 @@ public interface MediaListDao {
     //
     @Query("SELECT * FROM media_lists WHERE id = :id LIMIT 1")
     MediaList getMediaList(int id);
+
     @Query("SELECT * FROM media_lists WHERE name LIKE :name LIMIT 1")
     MediaList findByName(String name);
+
     @Query("SELECT max(id) FROM media_lists")
     int getHighestId();
-
 
 
     //

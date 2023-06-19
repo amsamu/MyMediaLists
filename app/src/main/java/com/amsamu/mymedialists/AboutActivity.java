@@ -2,8 +2,6 @@ package com.amsamu.mymedialists;
 
 import static com.amsamu.mymedialists.util.SharedMethods.openLinkInBrowser;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +25,7 @@ public class AboutActivity extends AppCompatActivity {
         setUpClickableElements();
     }
 
-    public void setUpClickableElements(){
+    public void setUpClickableElements() {
         // APP LINKS
         binding.appAuthorLayout.setOnClickListener(v -> {
             openLinkInBrowser(this, R.string.app_developer_link);

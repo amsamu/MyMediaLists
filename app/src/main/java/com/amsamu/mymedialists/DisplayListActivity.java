@@ -13,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.amsamu.mymedialists.adapters.MediaListAdapter;
+import com.amsamu.mymedialists.database.AppDatabase;
 import com.amsamu.mymedialists.database.tables.Entry;
 import com.amsamu.mymedialists.database.tables.MediaList;
-import com.amsamu.mymedialists.database.AppDatabase;
 import com.amsamu.mymedialists.databinding.ActivityDisplayListBinding;
 import com.amsamu.mymedialists.util.SortingField;
 import com.amsamu.mymedialists.util.ToastManager;

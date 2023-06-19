@@ -70,7 +70,6 @@
                         </LinearLayout>
 
 
-
                         <!-- HEADER: App version -->
                         <LinearLayout
                             android:layout_width="wrap_content"

@@ -40,38 +40,38 @@
 
                 <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:animateLayoutChanges="true"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/settings_export"
-                            android:clickable="true"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingStart="48dp"
-                            android:paddingEnd="48dp"
-                            android:paddingTop="24dp"
-                            android:paddingBottom="24dp"
-                            android:textAppearance="?attr/textAppearanceBodyLarge"
                             android:background="?attr/selectableItemBackground"
-                            android:text="@string/export_text"/>
+                            android:clickable="true"
+                            android:paddingStart="48dp"
+                            android:paddingTop="24dp"
+                            android:paddingEnd="48dp"
+                            android:paddingBottom="24dp"
+                            android:text="@string/export_text"
+                            android:textAppearance="?attr/textAppearanceBodyLarge" />
 
                         <TextView
                             android:id="@+id/settings_import"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingStart="48dp"
-                            android:paddingEnd="48dp"
-                            android:paddingTop="24dp"
-                            android:paddingBottom="24dp"
-                            android:textAppearance="?attr/textAppearanceBodyLarge"
                             android:background="?attr/selectableItemBackground"
-                            android:text="@string/import_text"/>
+                            android:paddingStart="48dp"
+                            android:paddingTop="24dp"
+                            android:paddingEnd="48dp"
+                            android:paddingBottom="24dp"
+                            android:text="@string/import_text"
+                            android:textAppearance="?attr/textAppearanceBodyLarge" />
 
                     </LinearLayout>
                 </androidx.core.widget.NestedScrollView>

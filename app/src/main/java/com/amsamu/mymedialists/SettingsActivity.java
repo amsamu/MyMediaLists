@@ -4,16 +4,16 @@ import static com.amsamu.mymedialists.util.JsonOperations.readJsonFile;
 import static com.amsamu.mymedialists.util.JsonOperations.writeJsonFile;
 import static com.amsamu.mymedialists.util.SharedMethods.simpleFormatter;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.amsamu.mymedialists.database.AppDatabase;
 import com.amsamu.mymedialists.database.tables.Entry;
@@ -138,7 +138,7 @@ public class SettingsActivity extends AppCompatActivity {
 
             Entry[] entries = gson.fromJson(importJsonObj.get("entries"), new TypeToken<Entry[]>() {
             }.getType());
-            if(decodeImages(entries)){
+            if (decodeImages(entries)) {
                 newDBFromImport(mediaLists, entries);
             }
         } else {
@@ -177,7 +177,7 @@ public class SettingsActivity extends AppCompatActivity {
         return success;
     }
 
-    public void newDBFromImport(MediaList[] mediaLists, Entry[] entries){
+    public void newDBFromImport(MediaList[] mediaLists, Entry[] entries) {
         db.mediaListDao().deleteEverything();
         db.entryDao().deleteEverything();
 

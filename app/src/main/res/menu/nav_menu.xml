@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/nav_home" android:title="@string/home">
+    <item
+        android:id="@+id/nav_home"
+        android:title="@string/home">
         <menu>
-            <group android:id="@+id/nav_group_home" android:orderInCategory="0">
+            <group
+                android:id="@+id/nav_group_home"
+                android:orderInCategory="0">
                 <item
                     android:id="@+id/nav_item_home"
                     android:icon="@drawable/ic_baseline_home_24"
@@ -13,12 +16,16 @@
         </menu>
     </item>
 
-    <item android:id="@+id/nav_lists" android:title="@string/lists">
+    <item
+        android:id="@+id/nav_lists"
+        android:title="@string/lists">
         <menu>
-            <group android:id="@+id/nav_group_lists" android:orderInCategory="1">
-<!--                        <item-->
-<!--                            android:id="@+id/nav_item_list_1"-->
-<!--                            android:title="List 1" />-->
+            <group
+                android:id="@+id/nav_group_lists"
+                android:orderInCategory="1">
+                <!--                        <item-->
+                <!--                            android:id="@+id/nav_item_list_1"-->
+                <!--                            android:title="List 1" />-->
 
                 <!--        <item-->
                 <!--            android:id="@+id/nav_item_list_2"-->
@@ -32,24 +39,25 @@
     </item>
 
 
-    <item android:id="@+id/nav_options" android:title="@string/options">
+    <item
+        android:id="@+id/nav_options"
+        android:title="@string/options">
         <menu>
-            <group android:id="@+id/nav_group_options" android:orderInCategory="2" >
+            <group
+                android:id="@+id/nav_group_options"
+                android:orderInCategory="2">
                 <item
                     android:id="@+id/nav_item_new_list"
-                    android:title="@string/new_list"
                     android:icon="@drawable/ic_baseline_library_add_24"
-                    />
+                    android:title="@string/new_list" />
                 <item
                     android:id="@+id/nav_item_settings"
-                    android:title="@string/settings"
                     android:icon="@drawable/baseline_settings_24"
-                    />
+                    android:title="@string/settings" />
                 <item
                     android:id="@+id/nav_item_about"
-                    android:title="@string/about"
                     android:icon="@drawable/outline_info_24"
-                    />
+                    android:title="@string/about" />
             </group>
         </menu>
     </item>

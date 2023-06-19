@@ -2,12 +2,15 @@ package com.amsamu.mymedialists.database;
 
 import android.content.Context;
 
-import androidx.room.*;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import com.amsamu.mymedialists.database.dao.EntryDao;
 import com.amsamu.mymedialists.database.dao.MediaListDao;
-import com.amsamu.mymedialists.database.tables.MediaList;
 import com.amsamu.mymedialists.database.tables.Entry;
+import com.amsamu.mymedialists.database.tables.MediaList;
 
 @Database(entities = {Entry.class, MediaList.class}, version = 11, exportSchema = false)
 @TypeConverters({Converters.class})

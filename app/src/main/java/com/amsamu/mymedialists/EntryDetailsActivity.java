@@ -4,21 +4,19 @@ import static com.amsamu.mymedialists.util.SharedMethods.formatDate;
 import static com.amsamu.mymedialists.util.SharedMethods.showInfoDialog;
 import static com.amsamu.mymedialists.util.SharedMethods.simpleFormatter;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.amsamu.mymedialists.database.tables.Entry;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.amsamu.mymedialists.database.AppDatabase;
+import com.amsamu.mymedialists.database.tables.Entry;
 import com.amsamu.mymedialists.databinding.ActivityEntryDetailsBinding;
 import com.amsamu.mymedialists.util.EntryStatus;
 import com.amsamu.mymedialists.util.ToastManager;
@@ -32,7 +30,6 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class EntryDetailsActivity extends AppCompatActivity {
@@ -123,7 +120,7 @@ public class EntryDetailsActivity extends AppCompatActivity {
         }
     }
 
-    public void saveEntry(){
+    public void saveEntry() {
         saveFields();
         if (isNewEntry) {
             insertToDB();

@@ -25,8 +25,8 @@
                     android:id="@+id/topAppBar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:navigationIcon="@drawable/ic_baseline_close_24"
                     app:menu="@menu/details_toolbar"
+                    app:navigationIcon="@drawable/ic_baseline_close_24"
                     app:title="@string/new_list" />
 
                 <com.google.android.material.textfield.TextInputLayout

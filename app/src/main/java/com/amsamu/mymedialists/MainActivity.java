@@ -2,24 +2,20 @@ package com.amsamu.mymedialists;
 
 import static com.amsamu.mymedialists.util.SharedMethods.loadListsToMenu;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.amsamu.mymedialists.adapters.CarouselAdapter;
 import com.amsamu.mymedialists.database.AppDatabase;
 import com.amsamu.mymedialists.database.tables.Entry;
-import com.amsamu.mymedialists.database.tables.MediaList;
 import com.amsamu.mymedialists.databinding.ActivityMainBinding;
 import com.amsamu.mymedialists.util.EntryStatus;
 import com.google.android.material.carousel.CarouselLayoutManager;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import java.io.File;
 import java.util.Arrays;

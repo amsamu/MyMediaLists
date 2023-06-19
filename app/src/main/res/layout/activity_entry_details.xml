@@ -41,13 +41,13 @@
 
                 <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:animateLayoutChanges="true"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <!-- Cover image -->
                         <com.google.android.material.carousel.MaskableFrameLayout
@@ -75,8 +75,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/name_hint"
-                            android:paddingTop="24dp"
                             android:paddingStart="48dp"
+                            android:paddingTop="24dp"
                             android:paddingEnd="48dp"
                             android:paddingBottom="12dp"
                             tools:ignore="MissingConstraints">
@@ -115,7 +115,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
-                            android:visibility="gone" >
+                            android:visibility="gone">
 
                             <!-- Release year input -->
                             <com.google.android.material.textfield.TextInputLayout
@@ -181,8 +181,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/status"
-                            android:paddingTop="24dp"
                             android:paddingStart="48dp"
+                            android:paddingTop="24dp"
                             android:paddingEnd="48dp"
                             android:paddingBottom="12dp"
                             tools:ignore="MissingConstraints">
@@ -192,8 +192,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="none"
-                                app:simpleItems="@array/simple_items"
-                                android:text="@string/planned" />
+                                android:text="@string/planned"
+                                app:simpleItems="@array/simple_items" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <!-- Start date input -->

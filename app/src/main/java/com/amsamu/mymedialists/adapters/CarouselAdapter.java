@@ -42,7 +42,7 @@ public class CarouselAdapter extends ListAdapter<Entry, CarouselAdapter.Carousel
         public void onItemClick(Entry entry);
     }
 
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
@@ -59,7 +59,7 @@ public class CarouselAdapter extends ListAdapter<Entry, CarouselAdapter.Carousel
         holder.bind(entry);
     }
 
-    public class CarouselViewHolder extends RecyclerView.ViewHolder{
+    public class CarouselViewHolder extends RecyclerView.ViewHolder {
 
         private CarouselItemBinding binding;
 
@@ -68,9 +68,9 @@ public class CarouselAdapter extends ListAdapter<Entry, CarouselAdapter.Carousel
             this.binding = binding;
         }
 
-        public void bind(Entry entry){
-            Log.d("CarouselAdapter","bind: entry.name = " + entry.name);
-            if(entry.coverImage != null) {
+        public void bind(Entry entry) {
+            Log.d("CarouselAdapter", "bind: entry.name = " + entry.name);
+            if (entry.coverImage != null) {
                 binding.carouselImageView.setImageURI(Uri.fromFile(new File(entry.coverImage)));
                 binding.carouselImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }

@@ -7,25 +7,25 @@
 
     </data>
 
-        <com.google.android.material.carousel.MaskableFrameLayout
-            android:id="@+id/carousel_item_container"
-            android:layout_width="150dp"
-            android:layout_height="184dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:foreground="?attr/selectableItemBackground"
-            app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge"
-            tools:ignore="MissingConstraints">
+    <com.google.android.material.carousel.MaskableFrameLayout
+        android:id="@+id/carousel_item_container"
+        android:layout_width="150dp"
+        android:layout_height="184dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:foreground="?attr/selectableItemBackground"
+        app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge"
+        tools:ignore="MissingConstraints">
 
-            <ImageView
-                android:id="@+id/carousel_image_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="center"
-                android:background="?attr/colorPrimaryContainer"
-                android:src="@drawable/baseline_description_24" />
+        <ImageView
+            android:id="@+id/carousel_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/colorPrimaryContainer"
+            android:scaleType="center"
+            android:src="@drawable/baseline_description_24" />
 
-        </com.google.android.material.carousel.MaskableFrameLayout>
+    </com.google.android.material.carousel.MaskableFrameLayout>
 
 </layout>
 

@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.amsamu.mymedialists.util.EntryStatus;
 import com.amsamu.mymedialists.util.SortingField;
 
 @Entity(tableName = "media_lists")

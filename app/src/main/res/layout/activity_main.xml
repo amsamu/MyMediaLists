@@ -34,16 +34,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
                         app:navigationIcon="@drawable/ic_baseline_menu_24"
-                        app:titleCentered="true"
-                        app:title="@string/main_activity_title" />
+                        app:title="@string/main_activity_title"
+                        app:titleCentered="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/carrousel_title"
-                        android:paddingTop="24dp"
                         android:paddingStart="36dp"
+                        android:paddingTop="24dp"
                         android:paddingEnd="24dp"
+                        android:text="@string/carrousel_title"
                         android:textAppearance="?attr/textAppearanceTitleLarge" />
 
                 </com.google.android.material.appbar.AppBarLayout>
@@ -51,8 +51,8 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="196dp"
-                    android:padding="12dp"
                     android:layout_margin="12dp"
+                    android:padding="12dp"
                     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -61,7 +61,7 @@
                         android:layout_height="match_parent"
                         android:clipChildren="false"
                         android:clipToPadding="false"
-                        tools:listitem="@layout/carousel_item"/>
+                        tools:listitem="@layout/carousel_item" />
 
                     <TextView
                         android:id="@+id/empty_view"
@@ -69,8 +69,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:gravity="start"
-                        android:textSize="16sp"
-                        android:text="@string/empty_ongoing_carousel_text" />
+                        android:text="@string/empty_ongoing_carousel_text"
+                        android:textSize="16sp" />
 
                 </FrameLayout>
 

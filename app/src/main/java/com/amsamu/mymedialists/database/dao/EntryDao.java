@@ -28,14 +28,12 @@ public interface EntryDao {
     List<Entry> getOrderedByNameDesc(int listId);
 
 
-
     // Ordered by AUTHOR
     @Query("SELECT * FROM entries WHERE listId = :listId ORDER BY author COLLATE NOCASE COLLATE UNICODE")
     List<Entry> getOrderedByAuthorAsc(int listId);
 
     @Query("SELECT * FROM entries WHERE listId = :listId ORDER BY author COLLATE NOCASE COLLATE UNICODE DESC")
     List<Entry> getOrderedByAuthorDesc(int listId);
-
 
 
     // Ordered by RELEASE YEAR
@@ -49,18 +47,17 @@ public interface EntryDao {
     // Ordered by START DATE
     @Query("SELECT * FROM entries WHERE listId = :listId ORDER BY startDate")
     List<Entry> getOrderedByStartDateAsc(int listId);
+
     @Query("SELECT * FROM entries WHERE listId = :listId ORDER BY startDate DESC")
     List<Entry> getOrderedByStartDateDesc(int listId);
-
-
 
 
     // Ordered by FINISH DATE
     @Query("SELECT * FROM entries WHERE listId = :listId ORDER BY finishDate")
     List<Entry> getOrderedByFinishDateAsc(int listId);
+
     @Query("SELECT * FROM entries WHERE listId = :listId ORDER BY finishDate DESC")
     List<Entry> getOrderedByFinishDateDesc(int listId);
-
 
 
     // Ordered by STATUS
@@ -85,8 +82,6 @@ public interface EntryDao {
     List<Entry> getOrderedByStatusDesc(int listId);
 
 
-
-
     // Get single entry
     @Query("SELECT * FROM entries WHERE id = :id LIMIT 1")
     Entry getEntry(int id);
@@ -97,7 +92,6 @@ public interface EntryDao {
     //
     @Query("SELECT max(id) FROM entries")
     int getHighestId();
-
 
 
     //

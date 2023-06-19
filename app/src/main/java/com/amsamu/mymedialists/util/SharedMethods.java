@@ -8,8 +8,8 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 
-import com.amsamu.mymedialists.database.AppDatabase;
 import com.amsamu.mymedialists.R;
+import com.amsamu.mymedialists.database.AppDatabase;
 import com.amsamu.mymedialists.database.dao.MediaListDao;
 import com.amsamu.mymedialists.database.tables.MediaList;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -39,7 +39,7 @@ public class SharedMethods {
 
 
     // Dialogs
-    public static void showInfoDialog(Context context, CharSequence message){
+    public static void showInfoDialog(Context context, CharSequence message) {
         new MaterialAlertDialogBuilder(context)
                 .setMessage(message)
                 .setPositiveButton(R.string.ok, (dialog, which) -> {
@@ -47,18 +47,18 @@ public class SharedMethods {
                 .show();
     }
 
-    public static void showInfoDialog(Context context, int messageId){
+    public static void showInfoDialog(Context context, int messageId) {
         showInfoDialog(context, context.getString(messageId));
     }
 
 
     // Open links
-    public static void openLinkInBrowser(Activity activity, String link){
+    public static void openLinkInBrowser(Activity activity, String link) {
         activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link))
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
-    public static void openLinkInBrowser(Activity activity, int linkResourceId){
+    public static void openLinkInBrowser(Activity activity, int linkResourceId) {
         openLinkInBrowser(activity, activity.getString(linkResourceId));
     }
 
