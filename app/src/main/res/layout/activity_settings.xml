@@ -48,6 +48,21 @@
                         android:animateLayoutChanges="true"
                         android:orientation="vertical">
 
+                        <!--  -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:paddingStart="36dp"
+                            android:paddingTop="24dp"
+                            android:paddingBottom="12dp"
+                            android:text="@string/backups"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"
+                            android:textColor="?attr/colorControlNormal" />
+
+
                         <TextView
                             android:id="@+id/settings_export"
                             android:layout_width="match_parent"
