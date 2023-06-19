@@ -88,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("prevActivityIsHome", true);
         } else if (menuItem.getItemId() == R.id.nav_item_settings) {
             intent = new Intent(this, SettingsActivity.class);
+        } else if (menuItem.getItemId() == R.id.nav_item_about) {
+            intent = new Intent(this, AboutActivity.class);
         }
 
         // Launch new activity

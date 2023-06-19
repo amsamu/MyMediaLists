@@ -50,7 +50,7 @@ public class DisplayListActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        if(launchedNewList) {
+        if (launchedNewList) {
             int prevHighestId = highestListId;
             highestListId = db.mediaListDao().getHighestId();
             if (highestListId > prevHighestId) {
@@ -61,7 +61,7 @@ public class DisplayListActivity extends AppCompatActivity {
         setUpEverything();
     }
 
-    public void setUpEverything(){
+    public void setUpEverything() {
         list = db.mediaListDao().getMediaList(listId);
         setUpTopBar();
         binding.navigation.getMenu().findItem(R.id.nav_lists).getSubMenu().removeGroup(R.id.nav_group_lists);
@@ -86,7 +86,7 @@ public class DisplayListActivity extends AppCompatActivity {
 
         if (list.sortAscending) {
             binding.topAppBar.getMenu().findItem(R.id.action_sort_ascending).setIcon(R.drawable.cil_sort_ascending).setTitle(R.string.sort_ascending);
-        }else{
+        } else {
             binding.topAppBar.getMenu().findItem(R.id.action_sort_ascending).setIcon(R.drawable.cil_sort_descending).setTitle(R.string.sort_descending);
         }
         loadSortField();
@@ -205,16 +205,16 @@ public class DisplayListActivity extends AppCompatActivity {
         } else {
             entryList = getEntryListDesc();
         }
-        if(entryList != null) {
+        if (entryList != null) {
             adapter.submitList(entryList);
         }
         setUpEmptyView(entryList);
     }
 
-    public void setUpEmptyView(List<Entry> entryList){
-        if(entryList == null || entryList.isEmpty()){
+    public void setUpEmptyView(List<Entry> entryList) {
+        if (entryList == null || entryList.isEmpty()) {
             binding.emptyView.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             binding.emptyView.setVisibility(View.GONE);
         }
     }
@@ -294,12 +294,14 @@ public class DisplayListActivity extends AppCompatActivity {
             launchListDetails(-1);
         } else if (menuItem.getItemId() == R.id.nav_item_settings) {
             intent = new Intent(this, SettingsActivity.class);
+        } else if (menuItem.getItemId() == R.id.nav_item_about) {
+            intent = new Intent(this, AboutActivity.class);
         }
 
         // Launch new activity
         if (intent != null) {
             startActivity(intent);
-            if (menuItem.getItemId() != R.id.nav_item_new_list && menuItem.getItemId() != R.id.nav_item_settings) {
+            if (menuItem.getGroupId() != R.id.nav_group_options) {
                 finish(); // destroy this activity so it doesn't stay in the background
             }
         }

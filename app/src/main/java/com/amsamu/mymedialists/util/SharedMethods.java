@@ -1,6 +1,9 @@
 package com.amsamu.mymedialists.util;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
@@ -34,6 +37,8 @@ public class SharedMethods {
         return date == null ? null : DateFormat.getDateFormat(context).format(date);
     }
 
+
+    // Dialogs
     public static void showInfoDialog(Context context, CharSequence message){
         new MaterialAlertDialogBuilder(context)
                 .setMessage(message)
@@ -44,6 +49,17 @@ public class SharedMethods {
 
     public static void showInfoDialog(Context context, int messageId){
         showInfoDialog(context, context.getString(messageId));
+    }
+
+
+    // Open links
+    public static void openLinkInBrowser(Activity activity, String link){
+        activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link))
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+    }
+
+    public static void openLinkInBrowser(Activity activity, int linkResourceId){
+        openLinkInBrowser(activity, activity.getString(linkResourceId));
     }
 
 }

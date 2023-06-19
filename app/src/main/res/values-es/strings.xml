@@ -63,4 +63,15 @@
     <string name="imported">Nueva base de datos importada</string>
     <string name="options">Opciones</string>
     <string name="exporting">Preparando exportación...</string>
+    <string name="about">Acerca de</string>
+    <string name="about_app">Acerca de esta app</string>
+    <string name="developed_by">"desarrollado por "</string>
+    <string name="license">Licencia</string>
+    <string name="source_code">Código fuente</string>
+    <string name="third_party_licenses">Licencias de terceros</string>
+    <string name="see_on_github">Ver en GitHub</string>
+    <string name="app_icon">Icono de la app</string>
+    <string name="icons">Iconos</string>
+    <string name="app_icon_attribution">Criterios iconos creados por manshagraphics - Flaticon</string>
+    <string name="privacy_policy">Política de privacidad</string>
 </resources>

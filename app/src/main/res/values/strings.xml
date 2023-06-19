@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name" translatable="false">MyMediaLists</string>
+    <string name="app_developer" translatable="false">amsamu</string>
+    <string name="app_developer_link" translatable="false">https://github.com/amsamu</string>
+    <string name="license_abrv_gpl_3" translatable="false">GPLv3</string>
+    <string name="app_license_link" translatable="false">https://www.gnu.org/licenses/gpl-3.0.en.html#license-text</string>
+    <string name="app_source_code_link" translatable="false">https://github.com/amsamu/MyMediaLists</string>
+    <string name="app_privacy_policy_link" translatable="false">https://github.com/amsamu/MyMediaLists</string>
+    <string name="app_icon_credits_link" translatable="false">https://www.flaticon.com/free-icons/criteria</string>
+    <string name="gson_license_link" translatable="false">https://github.com/google/gson/blob/main/LICENSE</string>
+    <string name="gson_with_version" translatable="false">Gson 2.10.1</string>
+    <string name="gson_copy_and_license" translatable="false">© 2008 Google Inc., ALv2</string>
+
     <string name="welcome_msg">Welcome to MyMediaLists home page</string>
     <string name="new_list">New list</string>
     <string name="nav_menu_open">Open</string>
@@ -63,4 +74,15 @@
     <string name="imported">New database imported</string>
     <string name="options">Options</string>
     <string name="exporting">Preparing exportation...</string>
+    <string name="about">About</string>
+    <string name="about_app">About this app</string>
+    <string name="developed_by">"developed by "</string>
+    <string name="license">License</string>
+    <string name="source_code">Source code</string>
+    <string name="third_party_licenses">Third party licenses</string>
+    <string name="see_on_github">See on GitHub</string>
+    <string name="app_icon">App icon</string>
+    <string name="icons">Icons</string>
+    <string name="app_icon_attribution">Criteria icons created by manshagraphics - Flaticon</string>
+    <string name="privacy_policy">Privacy policy</string>
 </resources>
