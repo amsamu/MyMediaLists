@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.amsamu.mymedialists.database.AppDatabase;
 import com.amsamu.mymedialists.database.tables.Entry;
 import com.amsamu.mymedialists.database.tables.MediaList;
-import com.amsamu.mymedialists.databinding.ActivitySettingsBinding;
+import com.amsamu.mymedialists.databinding.ActivityOptionsBinding;
 import com.amsamu.mymedialists.util.ToastManager;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.gson.Gson;
@@ -35,9 +35,9 @@ import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class SettingsActivity extends AppCompatActivity {
+public class OptionsActivity extends AppCompatActivity {
 
-    ActivitySettingsBinding binding;
+    ActivityOptionsBinding binding;
     AppDatabase db;
     JsonObject dbJsonObj;
     ActivityResultLauncher<String> exportResultLauncher;
@@ -47,7 +47,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = AppDatabase.getDatabase(getApplicationContext());
-        binding = ActivitySettingsBinding.inflate(getLayoutInflater());
+        binding = ActivityOptionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setUpTopBar();
@@ -88,10 +88,10 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void setUpBackupOptions() {
-        binding.settingsExport.setOnClickListener(v -> {
+        binding.optionsExport.setOnClickListener(v -> {
             exportDB();
         });
-        binding.settingsImport.setOnClickListener(v -> {
+        binding.optionsImport.setOnClickListener(v -> {
             importResultLauncher.launch(new String[]{"application/json"});
         });
     }

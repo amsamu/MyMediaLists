@@ -16,7 +16,7 @@
             android:name=".AboutActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".OptionsActivity"
             android:exported="false" />
         <activity
             android:name=".EntryDetailsActivity"

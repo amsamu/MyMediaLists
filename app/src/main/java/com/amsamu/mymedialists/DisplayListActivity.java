@@ -292,8 +292,8 @@ public class DisplayListActivity extends AppCompatActivity {
             launchedNewList = true;
             highestListId = db.mediaListDao().getHighestId();
             launchListDetails(-1);
-        } else if (menuItem.getItemId() == R.id.nav_item_settings) {
-            intent = new Intent(this, SettingsActivity.class);
+        } else if (menuItem.getItemId() == R.id.nav_item_options) {
+            intent = new Intent(this, OptionsActivity.class);
         } else if (menuItem.getItemId() == R.id.nav_item_about) {
             intent = new Intent(this, AboutActivity.class);
         }
